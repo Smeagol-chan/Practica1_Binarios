@@ -1,16 +1,24 @@
 package procesos;
 
 public class ResultadoProceso {
-    private final TipoSalida salida;
+    private TipoSalida salida;
     private final int[] rango;
 
-    public Resultado(final int salida, final int[] rango) {
-        this.salida = TipoSalida.buscarSalidaEquivalente(salida);
+    public ResultadoProceso(final int[] rango) {
         this.rango = rango;
+    }
+
+    public ResultadoProceso(final int[] rango, final int salida) {
+        this(rango);
+        this.salida = TipoSalida.buscarSalidaEquivalente(salida);
     }
 
     public TipoSalida getSalida() {
         return salida;
+    }
+
+    public void setSalida(final int salda) {
+        this.salida = TipoSalida.buscarSalidaEquivalente(salida);
     }
 
     public int[] getRango() {

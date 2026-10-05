@@ -1,25 +1,37 @@
 package procesos;
 import java.util.Collections;
-import java.util.Map;
-import java.util.HashMap;
+import java.util.List;
+import java.util.ArrayList;
 
 public class DatosEjecucion {
-    private final long inicioMillis;
-    private final long finMillis;
+    private long inicioMillis;
+    private long finMillis;
     private final int cantidadProcesos;
     private final int[] rango;
-    private Map<Integer, ResultadoProceso> procesosEjecutados;
+    private List<ResultadoProceso> procesosEjecutados;
+
+    public DatosEjecucion(final int cantidadProcesos, final int[] rango) {
+        this.cantidadProcesos = cantidadProcesos;
+        this.rango = rango;
+        procesosEjecutados = new ArrayList<>(cantidadProcesos);
+    }
 
     public DatosEjecucion(final long inicioMillis, final long finMillis, final int cantidadProcesos, final int[] rango) {
         this.inicioMillis = inicioMillis;
         this.finMillis = finMillis;
-        this.cantidadProcesos = cantidadProcesos;
-        this.rango = rango;
-        procesosEjecutados = new HashMap<>();
+        this(cantidadProcesos, rango);
     }
 
     public double getTiempoEjecucion() {
         return ((double) finMillis - inicioMillis) / 1000;
+    }
+
+    public void setInicioMillis(final long inicioMillis) {
+        this.inicioMillis = inicioMillis;
+    }
+
+    public void setFinMillis(final long finMillis) {
+        this.finMillis = finMillis;
     }
 
     public int getCantidadProcesos() {
@@ -30,11 +42,11 @@ public class DatosEjecucion {
         return rango;
     }
 
-    public HashMap<Integer, ResultadoProceso> getProcesosEjecutados() {
-        return Collections.unmodifableList(procesosEjecutados);
+    public List<ResultadoProceso> getProcesosEjecutados() {
+        return Collections.unmodifiableList(procesosEjecutados);
     }
 
-    public void agregarResultadoProceso(final ResultadoProceso proceso) {
-        procesosEjecutados.put((procesosEjecutados.size() + 1), proceso);
+    public boolean agregarResultadoProceso(final ResultadoProceso proceso) {
+        return procesosEjecutados.add(proceso);
     }
 }
