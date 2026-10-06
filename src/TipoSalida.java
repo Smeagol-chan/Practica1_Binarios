@@ -50,4 +50,9 @@ public enum TipoSalida {
                 break;
         }
     }
+
+    @Override
+    public String toString() {
+        return valor +" --> "+ descripcion;
+    }
 }

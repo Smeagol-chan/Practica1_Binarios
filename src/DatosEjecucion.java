@@ -1,5 +1,4 @@
 package procesos;
-import java.util.Collections;
 import java.util.List;
 import java.util.ArrayList;
 
@@ -42,11 +41,23 @@ public class DatosEjecucion {
         return rango;
     }
 
-    public List<ResultadoProceso> getProcesosEjecutados() {
-        return Collections.unmodifiableList(procesosEjecutados);
+    public ArrayList<ResultadoProceso> getProcesosEjecutados() {
+        return procesosEjecutados;
     }
 
     public boolean agregarResultadoProceso(final ResultadoProceso proceso) {
         return procesosEjecutados.add(proceso);
+    }
+
+    @Override
+    public String toString() {
+        StringBuilder resultadosProcesos = new StringBuilder();
+        for(ResultadoProceso proceso : procesosEjecutados)
+            resultadosProcesos.append("\n").append(proceso.toString());
+
+        return "Rango: ["+ rango[0] +", "+ rango[1] +"]"+
+            "\nCantidad de procesos: "+ cantidadProcesos +
+            "\nProcesos: "+ resultadosProcesos.toString() + 
+            "\nTiempo de ejecución: "+ getTiempoEjecucion() +" segundos";
     }
 }

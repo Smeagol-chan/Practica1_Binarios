@@ -8,24 +8,22 @@ import java.util.ArrayList;
 public class MaestroProcesos {
     private static final int TOTAL_MULTIPROCESOS = 4;
     private static final String DEFAULT_INICIO = "0";
-    private static final String DEFAULT_FIN = "20000";
+    private static final String DEFAULT_FIN = "1000";
 
     public static void main(String[] args) {
         String arg1 = args.length < 1 ? DEFAULT_INICIO : args[0], arg2 = args.length < 2 ? DEFAULT_FIN : args[1];
         String[] infoCalculoPrimos = new String[]{"java", "procesos.TrabajadorPrimo", arg1, arg2};
 
         System.out.println("---Ejecución con multiproceso------------------------------");
-        try(String[] resultados = arrancarTrabajadorPrimo(infoCalculoPrimos, TOTAL_MULTIPROCESOS)) {
-            for(String dato : resultados)
-                System.out.println("\t>"+ dato);
+        try(DatosEjecucion resultados = arrancarTrabajadorPrimo(infoCalculoPrimos, TOTAL_MULTIPROCESOS)) {
+            System.out.println(resultados);
         } catch(RuntimeException | NumberFormatException e) {
             System.out.println("--ERROR--\nHa surgido un error durante la ejecución con multiprocesos:\n"+ e.getMessage());
         }
         
         System.out.println("\n---Ejecución sin multiproceso------------------------------");
-        try(String[] resultados = arrancarTrabajadorPrimo(infoCalculoPrimos, 1)) {
-            for(String dato : resultados)
-                System.out.println("\t>"+ dato);
+        try(DatosEjecucion resultados = arrancarTrabajadorPrimo(infoCalculoPrimos, 1)) {
+            System.out.println(resultados);
         } catch(RuntimeException | NumberFormatException e) {
             System.out.println("--ERROR--\nHa surgido un error durante la ejecución sin multiprocesos:\n"+ e.getMessage());
         }
@@ -43,7 +41,7 @@ public class MaestroProcesos {
             for(int i = 0; i < procesosSimultaneos; i++) {
                 if(i != 0) limiteInf = limiteSup + 1;
                 limiteSup = limiteInf + salto > datos.getRango()[1] ? datos.getRango()[1] : limiteInf + salto;
-                datos.agregarResultadoProceso(new ResultadoProceso({limiteInf, limiteSup}));
+                datos.agregarResultadoProceso(new ResultadoProceso({limiteInf, limiteSup}, datos.getCantidadProcesos().size() + 1));
             }
         }
         
@@ -58,6 +56,10 @@ public class MaestroProcesos {
                 });
                 procesosActivos.add(proceso);
             }
+
+            for(int i = 0; i < procesosSimultaneos; i++)
+                datos.getProcesosEjecutados().get(i).setSalida(procesosActivos.get(i).waitFor());
+
         } catch(IOException e) {
             throw new RuntimeException(e.getMessage());
         }
