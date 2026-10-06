@@ -59,11 +59,16 @@ public class MaestroProcesos {
                 procesosActivos.add(proceso);
             }
 
+            for(Process proceso : procesosActivos) {
+                BufferedReader output = new BufferedReader(new InputStreamReader(proceso.getInputStream()));
+                output.close();
+            }
+
             for(int i = 0; i < procesosSimultaneos; i++)
                 datos.getProcesosEjecutados().get(i).setSalida(procesosActivos.get(i).waitFor());
 
         } catch(IOException | InterruptedException e) {
-            throw new RuntimeException(e.getMessage());
+            throw new RuntimeException(e);
         }
         datos.setFinMillis(System.currentTimeMillis());
 
