@@ -8,7 +8,7 @@ import java.util.ArrayList;
 public class MaestroProcesos {
     private static final int TOTAL_MULTIPROCESOS = 4;
     private static final String DEFAULT_INICIO = "0";
-    private static final String DEFAULT_FIN = "10000";
+    private static final String DEFAULT_FIN = "20000";
 
     public static void main(String[] args) {
         String arg1 = args.length < 1 ? DEFAULT_INICIO : args[0], arg2 = args.length < 2 ? DEFAULT_FIN : args[1];

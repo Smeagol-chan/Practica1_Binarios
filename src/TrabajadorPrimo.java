@@ -26,27 +26,25 @@ public class TrabajadorPrimo {
             System.exit(4);
         } else {
             System.out.println("Prime number in range ["+ begin +", "+ limit +"]:");
-            if(limit <= 2) {
-                System.out.print(limit == 2 ?
-                    "2" :
-                    "Not found");
-            } else {
-                if(2 >= begin) {
+            if(limit <= 2)
+                System.out.print(limit == 2 ? "2" : "Not found");
+            else {
+                if(begin <= 2) {
                     System.out.print("2, ");
                     begin = 3;
                 }
                 printPrimes(begin % 2 == 0 ? begin + 1 : begin, limit);
             }
-            System.out.println("\n\n\n0");
+            System.out.println("\nSatisfactorio.");
             System.exit(0);
         }
     }
 
-    public static void printPrimes(int begin, int limit) {
+    public static void printPrimes(final int begin, final int limit) {
         boolean foundPrime = false;
         for(int i = begin; i <= limit; i += 2) {
             boolean isPrime = true;
-            for(int j = 3; j < i && isPrime; j++) {
+            for(int j = 3; j < i && isPrime; j += 2) {
                 if(i % j == 0) isPrime = false;
             }
             if(isPrime) {
