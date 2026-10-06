@@ -41,7 +41,7 @@ public class DatosEjecucion {
         return rango;
     }
 
-    public ArrayList<ResultadoProceso> getProcesosEjecutados() {
+    public List<ResultadoProceso> getProcesosEjecutados() {
         return procesosEjecutados;
     }
 
@@ -53,11 +53,11 @@ public class DatosEjecucion {
     public String toString() {
         StringBuilder resultadosProcesos = new StringBuilder();
         for(ResultadoProceso proceso : procesosEjecutados)
-            resultadosProcesos.append("\n").append(proceso.toString());
+            resultadosProcesos.append("\n").append(proceso.toString()).append("\n");
 
         return "Rango: ["+ rango[0] +", "+ rango[1] +"]"+
             "\nCantidad de procesos: "+ cantidadProcesos +
-            "\nProcesos: "+ resultadosProcesos.toString() + 
-            "\nTiempo de ejecución: "+ getTiempoEjecucion() +" segundos";
+            "\nTiempo de ejecución: "+ getTiempoEjecucion() +" segundos"+
+            "\nProcesos: "+ resultadosProcesos.toString();
     }
 }

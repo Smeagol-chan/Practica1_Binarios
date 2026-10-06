@@ -27,27 +27,21 @@ public enum TipoSalida {
         switch(salida) {
             case 0:
                 return TipoSalida.BIEN;
-                break;
 
             case 1:
                 return TipoSalida.MAL_TIPADO;
-                break;
 
             case 2:
                 return TipoSalida.SIN_ARGS;
-                break;
 
             case 3:
                 return TipoSalida.MAL_RANGO;
-                break;
 
             case 4:
                 return TipoSalida.NEGATIVOS;
-                break;
 
             default:
                 throw new RuntimeException("ERROR\nEl valor ("+ salida +") introducido no se correspsonde con ninguna salida.");
-                break;
         }
     }
 

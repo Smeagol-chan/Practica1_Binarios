@@ -1,5 +1,5 @@
 # URL de material de refuerzo.
 *.url
 
-# El programa compilado.
-./procesos/*
+# Programa compilado.
+procesos/*

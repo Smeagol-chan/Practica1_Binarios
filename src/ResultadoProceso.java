@@ -12,14 +12,14 @@ public class ResultadoProceso {
 
     public ResultadoProceso(final int[] rango, final int salida, final int numero) {
         this(rango, numero);
-        this.salida = TipoSalida.buscarSalidaEquivalente(salida);
+        setSalida(salida);
     }
 
     public TipoSalida getSalida() {
         return salida;
     }
 
-    public void setSalida(final int salda) {
+    public void setSalida(final int salida) {
         this.salida = TipoSalida.buscarSalidaEquivalente(salida);
     }
 
