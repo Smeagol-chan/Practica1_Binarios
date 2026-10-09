@@ -1,15 +1,42 @@
 package procesos;
 
+/**
+ * ResultadoProceso registra un identificador, el rango de números que ha procesado y la del programa.
+ * 
+ * @author Eric Ramos Pastor
+ * @see src.TipoSalida
+ * @version %I%, %G%
+ * @since 1.0
+ */
 public class ResultadoProceso {
     private TipoSalida salida;
     private final int[] rango;
     private final int numero;
 
+    /**
+     * Constructor que define un identificador y el rango que comprende.
+     * 
+     * @param rango Intervalo numérico procesado.
+     * @param numero Identificador del proceso.
+     * @see src.MaestroProcesos#arrancarTrabajadorPrimo(String[], int)
+     * @since 1.0
+     */
     public ResultadoProceso(final int[] rango, final int numero) {
         this.rango = rango;
         this.numero = numero;
     }
 
+    /**
+     * Constructor con todos los parámetros.
+     * <p>
+     * <code>rango</code> y <code>salida</code> se envían a {@link #ResultadoProceso(int[], int)} y 
+     * <code>salida</code> a {@link #setSalida(int)}.
+     * 
+     * @param rango Intervalo numérico procesado.
+     * @param salida Valor de salida de la ejecución.
+     * @param numero Identificador del proceso.
+     * @since 1.0
+     */
     public ResultadoProceso(final int[] rango, final int salida, final int numero) {
         this(rango, numero);
         setSalida(salida);
@@ -19,6 +46,13 @@ public class ResultadoProceso {
         return salida;
     }
 
+    /**
+     * Inicializa <code>this.salida</code> con el <code>TipoSalida</code> recibido.
+     * 
+     * @param salida Valor de salida de la ejecución.
+     * @see src.TipoSalida#buscarSalidaEquivalente(int)
+     * @since 1.0
+     */
     public void setSalida(final int salida) {
         this.salida = TipoSalida.buscarSalidaEquivalente(salida);
     }

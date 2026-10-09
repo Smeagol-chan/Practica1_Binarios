@@ -1,11 +1,37 @@
 package procesos;
 
+/**
+ * TrabajadorPrimo muestra por consola todos lo número primos presentes en un rango dado. Es una clase independiente.
+ * 
+ * @author Eric Ramos Pastor
+ * @version %I%, %G%
+ * @since 1.0
+ */
 public class TrabajadorPrimo {
-    // exit.0 -> All good
-    // exit.1 -> Invalid arguments tiping
-    // exit.2 -> Arguments didn't introduce
-    // exit.3 -> Beginning either greater or equal to limit
-    // exit.4 -> Negative values
+    /**
+     * Invoca <code>printPrimes</code> tras validar los argumentos introducidos.
+     * <p>
+     * Se comprueba que los argumentos no contengan texto, se hayan introducido 2 
+     * valores como mínimo, el primero sea menor que el segundo y no existan negativos 
+     * dentro del rango. Tras ello, se realizan comprobaciones iniciales sobre el rango mínimo 
+     * descrito. Si <code>limit</code> es igual o inferior a 2 no es necesario invocar <code>printPrimes</code>. 
+     * Si es mayor y <code>begin</code> es menor o igual a 2, se iguala a 3. Antes de llamar la función, 
+     * se comprueba si <code>begin</code> es par, enviando como parámetro valor <code>+ 1</code> de serlo. Se hace 
+     * para acortar a la mitad los números que requieren validación.
+     * <p>
+     * Los valores de <code>exit</code> son:
+     * <ol start="0">
+     * <li>Ejecución satisfactoria.
+     * <li>Tipado inválido de los argumentos.
+     * <li>Argumentos sin introducir.
+     * <li>Límite inferior del rango mayor o igual al superior.
+     * <li>Valores negativos comprendidos dentro del rango.
+     * </ol>
+     * 
+     * @param args
+     * @see #printPrimes(int, int)
+     * @since 1.0
+     */
     public static void main(String[] args) {
         int begin = 0, limit = 0;
         try {
@@ -40,6 +66,25 @@ public class TrabajadorPrimo {
         }
     }
 
+    /**
+     * Imprime todos los números primos comprendidos por el rango <code>begin <= x <= limit</code> en la consola.
+     * <p>
+     * La función comienza declarando <code>foundPrime</code> inicializado a <code>false</code> para mostrar un mensaje 
+     * si no se ha llegado a encontrar ningún primo dentro del rango. Tras esto, un bucle <code>for</code> recorre todos 
+     * los números impares. El incremento de <code>i</code> es de 2 porque se espera que <code>begin</code> contenga un 
+     * valor impar. Continúa con un <code>for</code> anidado que comprueba si <code>i</code> es divisible por otro número 
+     * salvo 1 y si mismo. <code>j</code> también es impar en todo momento, pues revisar <code>i % j == 0</code> cuando 
+     * <code>j % 2 == 0</code> resulta redundante. En ese caso se podría validar <code>i % 2 == 0</code> directamente, justo 
+     * la comprobación que <code>main</code> realiza para invocar esta función.
+     * <p>
+     * En el momento en el que <code>(i % j == 0) == true</code>, el booleano <code>isPrime</code> pasa a ser false y el bucle 
+     * interno finaliza. Finalmente, se imprime <code>i</code> si fuera un primo y se marca <code>primeFound</code> de tratarse 
+     * del primer número primo encontrado.
+     * 
+     * @param begin Número inicial que comprobar.
+     * @param limit Número final que comprbar.
+     * @since 1.0
+     */
     public static void printPrimes(final int begin, final int limit) {
         boolean foundPrime = false;
         for(int i = begin; i <= limit; i += 2) {
