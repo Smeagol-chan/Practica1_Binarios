@@ -90,7 +90,6 @@ public class DatosEjecucion {
      * @param proceso <code>ResultadoProceso</code> con datos del subproceso.
      * @return <code>true</code> si ha podido ser añadido y <code>false</code> en su defecto.
      * @see procesos.ResultadoProceso
-     * @see java.util.ArrayList#add(Object)
      * @since 1.0
      */
     public boolean agregarResultadoProceso(final ResultadoProceso proceso) {
@@ -101,8 +100,7 @@ public class DatosEjecucion {
      * El <code>foreach</code> sirve para formatear los <code>toString()</code> de cada proceso con 
      * un tabulador a la izquierda. Se utiliza un <code>StringBuilder</code> para ahorrar memoria.
      * 
-     * @see java.lang.Object#toString()
-     * @see java.lang.StringBuilder
+     * @see procesos.ResultadoProceso
      * @since 1.0
      */
     @Override

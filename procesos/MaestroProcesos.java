@@ -22,9 +22,8 @@ public class MaestroProcesos {
      * {@value #DEFAULT_INICIO} DEFAULT_INICIO Valor por defecto para el primer argumento.
      * {@value #DEFAULT_FIN} DEFAULT_FIN Valor por defecto para el segundo argumento.
      */
-    private static final int TOTAL_MULTIPROCESOS = 4;
     private static final String DEFAULT_INICIO = "0";
-    private static final String DEFAULT_FIN = "500000";
+    private static final String DEFAULT_FIN = "1000000";
 
     /**
      * Invoca <code>arrancarTrabajadorPrimo</code> primero empleando multiprocesamiento y 
@@ -37,15 +36,23 @@ public class MaestroProcesos {
      * @param args
      * @see #arrancarTrabajadorPrimo(String[], int)
      * @see procesos.DatosEjecucion
-     * @since 1.0
+     * @since 1.1
      */
     public static void main(String[] args) {
         String arg1 = args.length < 1 ? DEFAULT_INICIO : args[0], arg2 = args.length < 2 ? DEFAULT_FIN : args[1];
         String[] infoCalculoPrimos = new String[]{"java", "procesos.TrabajadorPrimo", arg1, arg2};
 
-        System.out.println("---Ejecución con multiproceso------------------------------");
+        System.out.println("---Ejecución con multiproceso: 8------------------------------");
         try {
-            DatosEjecucion resultados = arrancarTrabajadorPrimo(infoCalculoPrimos, TOTAL_MULTIPROCESOS);
+            DatosEjecucion resultados = arrancarTrabajadorPrimo(infoCalculoPrimos, 8);
+            System.out.println(resultados);
+        } catch(RuntimeException e) {
+            System.out.println("--ERROR--\nHa surgido un error durante la ejecución con multiprocesos:\n"+ e.getMessage());
+        }
+
+        System.out.println("\n---Ejecución con multiproceso: 4------------------------------");
+        try {
+            DatosEjecucion resultados = arrancarTrabajadorPrimo(infoCalculoPrimos, 4);
             System.out.println(resultados);
         } catch(RuntimeException e) {
             System.out.println("--ERROR--\nHa surgido un error durante la ejecución con multiprocesos:\n"+ e.getMessage());
@@ -75,8 +82,8 @@ public class MaestroProcesos {
      * @param infoProceso Los datos que apuntan al archivo objetivo y contiene los argumentos deseados.
      * @param procesosSimultaneos Cantidad de procesos a realizar.
      * @return <code>DatosEjecucion</code> con toda la información de la ejecución.
-     * @see src.DatosEjecucion
-     * @see src.ResultadoProceso
+     * @see procesos.DatosEjecucion
+     * @see procesos.ResultadoProceso
      * @since 1.0
      */
     private static DatosEjecucion arrancarTrabajadorPrimo(final String[] infoProceso, final int procesosSimultaneos) {
