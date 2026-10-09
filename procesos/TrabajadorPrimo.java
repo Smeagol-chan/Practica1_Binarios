@@ -67,7 +67,7 @@ public class TrabajadorPrimo {
     }
 
     /**
-     * Imprime todos los números primos comprendidos por el rango <code>begin <= x <= limit</code> en la consola.
+     * Imprime todos los números primos comprendidos por el rango <code>begin &lt;= x &gt;= limit</code> en la consola.
      * <p>
      * La función comienza declarando <code>foundPrime</code> inicializado a <code>false</code> para mostrar un mensaje 
      * si no se ha llegado a encontrar ningún primo dentro del rango. Tras esto, un bucle <code>for</code> recorre todos 

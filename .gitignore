@@ -2,4 +2,7 @@
 *.url
 
 # Programa compilado.
-procesos/*
+procesos/*.class
+
+# JavaDoc.
+doc/*

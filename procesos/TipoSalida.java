@@ -1,10 +1,10 @@
 package procesos;
 
 /**
- * TipoSalida es un enum que describe todas las salidas que {@link src.TrabajadorPrimo} puede devolver.
+ * TipoSalida es un enum que describe todas las salidas que {@link procesos.TrabajadorPrimo} puede devolver.
  * 
  * @author Eric Ramos Pastor
- * @see src.TrabajadorPrimo
+ * @see procesos.TrabajadorPrimo
  * @version %I%, %G%
  * @since 1.0
  */

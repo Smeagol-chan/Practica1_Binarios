@@ -7,7 +7,7 @@ import java.util.ArrayList;
  * el rango total de números a analizar y una lista de todos los procesos.
  * 
  * @author Eric Ramos Pastor
- * @see src.ResultadoProceso
+ * @see procesos.ResultadoProceso
  * @version %I%, %G%
  * @since 1.0
  */
@@ -89,7 +89,7 @@ public class DatosEjecucion {
      * 
      * @param proceso <code>ResultadoProceso</code> con datos del subproceso.
      * @return <code>true</code> si ha podido ser añadido y <code>false</code> en su defecto.
-     * @see src.ResultadoProceso
+     * @see procesos.ResultadoProceso
      * @see java.util.ArrayList#add(Object)
      * @since 1.0
      */

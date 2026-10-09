@@ -4,7 +4,7 @@ package procesos;
  * ResultadoProceso registra un identificador, el rango de números que ha procesado y la del programa.
  * 
  * @author Eric Ramos Pastor
- * @see src.TipoSalida
+ * @see procesos.TipoSalida
  * @version %I%, %G%
  * @since 1.0
  */
@@ -18,7 +18,7 @@ public class ResultadoProceso {
      * 
      * @param rango Intervalo numérico procesado.
      * @param numero Identificador del proceso.
-     * @see src.MaestroProcesos#arrancarTrabajadorPrimo(String[], int)
+     * @see procesos.MaestroProcesos#arrancarTrabajadorPrimo(String[], int)
      * @since 1.0
      */
     public ResultadoProceso(final int[] rango, final int numero) {
@@ -50,7 +50,7 @@ public class ResultadoProceso {
      * Inicializa <code>this.salida</code> con el <code>TipoSalida</code> recibido.
      * 
      * @param salida Valor de salida de la ejecución.
-     * @see src.TipoSalida#buscarSalidaEquivalente(int)
+     * @see procesos.TipoSalida#buscarSalidaEquivalente(int)
      * @since 1.0
      */
     public void setSalida(final int salida) {

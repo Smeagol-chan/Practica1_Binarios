@@ -6,13 +6,13 @@ import java.util.List;
 import java.util.ArrayList;
 
 /**
- * MaestroProcesos es la clase encargada de invocar la clase {@link src.TrabajadorPrimo} con 
- * y sin multiproceso, comparando el tiempo de ejecución. Es dependiente de {@link src.DatosEjecucion} 
+ * MaestroProcesos es la clase encargada de invocar la clase {@link procesos.TrabajadorPrimo} con 
+ * y sin multiproceso, comparando el tiempo de ejecución. Es dependiente de {@link procesos.DatosEjecucion} 
  * para la gestión de los datos.
  * 
  * @author Eric Ramos Pastor
- * @see src.TrabajadorPrimo
- * @see src.DatosEjecucion
+ * @see procesos.TrabajadorPrimo
+ * @see procesos.DatosEjecucion
  * @version %I%, %G%
  * @since 1.0
  */
@@ -32,11 +32,11 @@ public class MaestroProcesos {
      * <p>
      * La información de cada ejecución se compone de el tiempo total en segundo, la cantidad
      * de procesos que lo componen y el rango de números que cada uno ha procesado. Todo se 
-     * almacena en un objeto {@link src.DatosEjecucion}.
+     * almacena en un objeto {@link procesos.DatosEjecucion}.
      * 
      * @param args
      * @see #arrancarTrabajadorPrimo(String[], int)
-     * @see src.DatosEjecucion
+     * @see procesos.DatosEjecucion
      * @since 1.0
      */
     public static void main(String[] args) {
