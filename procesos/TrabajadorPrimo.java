@@ -28,7 +28,7 @@ public class TrabajadorPrimo {
      * <li>Valores negativos comprendidos dentro del rango.
      * </ol>
      * 
-     * @param args
+     * @param args Argumentos introducidos.
      * @see #printPrimes(int, int)
      * @since 1.0
      */
@@ -100,4 +100,9 @@ public class TrabajadorPrimo {
         }
         if(!foundPrime) System.out.print("Not found");
     }
+
+    /**
+     * @deprecated
+     */
+    public TrabajadorPrimo(){}
 }

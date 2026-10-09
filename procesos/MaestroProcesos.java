@@ -18,11 +18,12 @@ import java.util.ArrayList;
  */
 public class MaestroProcesos {
     /**
-     * {@value #TOTAL_MULTIPROCESOS} TOTAL_MULTIPROCESOS Define la cantidad de multoprocesos a realizar.
-     * {@value #DEFAULT_INICIO} DEFAULT_INICIO Valor por defecto para el primer argumento.
-     * {@value #DEFAULT_FIN} DEFAULT_FIN Valor por defecto para el segundo argumento.
+     * Valor por defecto del primer argumento: {@value #DEFAULT_INICIO}
      */
     private static final String DEFAULT_INICIO = "0";
+    /**
+     * Valor por defecto del segundo argumento: {@value #DEFAULT_FIN}
+     */
     private static final String DEFAULT_FIN = "1000000";
 
     /**
@@ -33,7 +34,7 @@ public class MaestroProcesos {
      * de procesos que lo componen y el rango de números que cada uno ha procesado. Todo se 
      * almacena en un objeto {@link procesos.DatosEjecucion}.
      * 
-     * @param args
+     * @param args Argumentos introducidos.
      * @see #arrancarTrabajadorPrimo(String[], int)
      * @see procesos.DatosEjecucion
      * @since 1.1
@@ -129,4 +130,9 @@ public class MaestroProcesos {
 
         return datos;
     }
+
+    /**
+     * @deprecated
+     */
+    public MaestroProcesos(){}
 }

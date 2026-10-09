@@ -9,8 +9,17 @@ package procesos;
  * @since 1.0
  */
 public class ResultadoProceso {
+    /**
+     * Salida del programa.
+     */
     private TipoSalida salida;
+    /**
+     * Intervalo de números procesados.
+     */
     private final int[] rango;
+    /**
+     * Identificador del proceso.
+     */
     private final int numero;
 
     /**
@@ -42,6 +51,11 @@ public class ResultadoProceso {
         setSalida(salida);
     }
 
+    /**
+     * Getter de <code>salida</code>.
+     * 
+     * @return {@link #salida}
+     */
     public TipoSalida getSalida() {
         return salida;
     }
@@ -57,10 +71,20 @@ public class ResultadoProceso {
         this.salida = TipoSalida.buscarSalidaEquivalente(salida);
     }
 
+    /**
+     * Getter de <code>rango</code>.
+     * 
+     * @return {@link #rango}
+     */
     public int[] getRango() {
         return rango;
     }
 
+    /**
+     * Getter de <code>numero</code>.
+     * 
+     * @return {@link #numero}
+     */
     public int getNumero() {
         return numero;
     }

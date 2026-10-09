@@ -9,13 +9,34 @@ package procesos;
  * @since 1.0
  */
 public enum TipoSalida {
+    /**
+     * Ejecución satisfactoria.
+     */
     BIEN(0, "Ejecución satisfactoria."),
+    /**
+     * Tipado de los argumentos inválido.
+     */
     MAL_TIPADO(1, "Tipado de los argumentos inválido."),
+    /**
+     * Argumentos no introducidos.
+     */
     SIN_ARGS(2, "Argumentos no introducidos."),
+    /**
+     * Límite inferior del rango igual o mayor al límite superior.
+     */
     MAL_RANGO(3, "Límite inferior del rango igual o mayor al límite superior."),
+    /**
+     * "Rango con valores negativos."
+     */
     NEGATIVOS(4, "Rango con valores negativos.");
 
+    /**
+     * Valor de salida del programa.
+     */
     private final int valor;
+    /**
+     * Descripción de la salida.
+     */
     private final String descripcion;
 
     /**
@@ -30,10 +51,20 @@ public enum TipoSalida {
         this.descripcion = descripcion;
     }
 
+    /**
+     * Getter de <code>valor</code>.
+     * 
+     * @return {@link #valor}
+     */
     public int getValor() {
         return valor;
     }
 
+    /**
+     * Getter de <code>descripcion</code>.
+     * 
+     * @return {@link #descripcion}
+     */
     public String getDescripcion() {
         return descripcion;
     }

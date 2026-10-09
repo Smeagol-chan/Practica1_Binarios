@@ -12,10 +12,25 @@ import java.util.ArrayList;
  * @since 1.0
  */
 public class DatosEjecucion {
+    /**
+     * Milisegundos transcurridos hasta inicio de ejecución.
+     */
     private long inicioMillis;
+    /**
+     * Milisegundos transcurridos hasta fin de ejecución.
+     */
     private long finMillis;
+    /**
+     * Cantidad de procesos simultáneos.
+     */
     private final int cantidadProcesos;
+    /**
+     * Intervalo de números a procesar.
+     */
     private final int[] rango;
+    /**
+     * Procesos que lo componen.
+     */
     private List<ResultadoProceso> procesosEjecutados;
 
     /**
@@ -63,22 +78,47 @@ public class DatosEjecucion {
         return ((double) finMillis - inicioMillis) / 1000;
     }
 
+    /**
+     * Setter de <code>inicioMillis</code>.
+     * 
+     * @param inicioMillis {@link #inicioMillis}
+     */
     public void setInicioMillis(final long inicioMillis) {
         this.inicioMillis = inicioMillis;
     }
 
+    /**
+     * Setter de <code>finMillis</code>.
+     * 
+     * @param finMillis {@link #finMillis}
+     */
     public void setFinMillis(final long finMillis) {
         this.finMillis = finMillis;
     }
 
+    /**
+     * Getter de <code>cantidadProcesos</code>.
+     * 
+     * @return {@link #cantidadProcesos}
+     */
     public int getCantidadProcesos() {
         return cantidadProcesos;
     }
 
+    /**
+     * Getter de <code>rango</code>.
+     * 
+     * @return {@link #rango}
+     */
     public int[] getRango() {
         return rango;
     }
 
+    /**
+     * Getter de <code>procesosEjecutados</code>.
+     * 
+     * @return {@link #procesosEjecutados}
+     */
     public List<ResultadoProceso> getProcesosEjecutados() {
         return procesosEjecutados;
     }
@@ -100,7 +140,6 @@ public class DatosEjecucion {
      * El <code>foreach</code> sirve para formatear los <code>toString()</code> de cada proceso con 
      * un tabulador a la izquierda. Se utiliza un <code>StringBuilder</code> para ahorrar memoria.
      * 
-     * @see procesos.ResultadoProceso
      * @since 1.0
      */
     @Override
