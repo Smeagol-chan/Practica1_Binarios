@@ -33,13 +33,13 @@
    - TrabajadorPrimo
      ```
      // Ambos parámetros han de ser introducidos.
-     ~> java procesos.TrabajadorPrimo PARAMETRO_1 PARAMETRO_2
+     ~> java procesos.TrabajadorPrimo &lt;límite-inferior&gt; &lt;límite-superior&gt;
      ```
    - MaestroProcesos
      ```
      // Estos parámetros sí que son opcionales.
      // De no hacerlo, los parámetros almacenarán 0 y 1_000_000 respectivamente.
-     ~> java procesos.MaestroProcesos [PARAMETRO_1] [PARAMETRO_2]
+     ~> java procesos.MaestroProcesos [&lt;límite-inferior&gt; &lt;límite-superior&gt;] &lt;número-de-procesos&gt;
      ```
 4. Este último paso no es necesario, pero si se desea generar un HTML a partir del JavaDoc:
    ```
