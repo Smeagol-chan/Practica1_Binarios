@@ -6,7 +6,7 @@ package procesos;
  * @author Eric Ramos Pastor
  * @see procesos.TipoSalida
  * @version %I%, %G%
- * @since 1.0
+ * @since 1.5
  */
 public class ResultadoProceso {
     /**
@@ -21,6 +21,10 @@ public class ResultadoProceso {
      * Identificador del proceso.
      */
     private final int numero;
+    /**
+     * Cantidad de números primos encontrados.
+     */
+    private int primosEncontrados;
 
     /**
      * Constructor que define un identificador y el rango que comprende.
@@ -39,15 +43,17 @@ public class ResultadoProceso {
      * Constructor con todos los parámetros.
      * <p>
      * <code>rango</code> y <code>salida</code> se envían a {@link #ResultadoProceso(int[], int)} y 
-     * <code>salida</code> a {@link #setSalida(int)}.
+     * <code>salida</code> a {@link #setSalida(int)}. <code>primosEncontrados</code> se inicializa con 
+     * el valor homónimo.
      * 
      * @param rango Intervalo numérico procesado.
      * @param salida Valor de salida de la ejecución.
      * @param numero Identificador del proceso.
-     * @since 1.0
+     * @since 1.5
      */
-    public ResultadoProceso(final int[] rango, final int salida, final int numero) {
+    public ResultadoProceso(final int[] rango, final int salida, final int numero, final int primosEncontrados) {
         this(rango, numero);
+        this.primosEncontrados = primosEncontrados;
         setSalida(salida);
     }
 
@@ -55,6 +61,7 @@ public class ResultadoProceso {
      * Getter de <code>salida</code>.
      * 
      * @return {@link #salida}
+     * @since 1.0
      */
     public TipoSalida getSalida() {
         return salida;
@@ -75,6 +82,7 @@ public class ResultadoProceso {
      * Getter de <code>rango</code>.
      * 
      * @return {@link #rango}
+     * @since 1.0
      */
     public int[] getRango() {
         return rango;
@@ -84,15 +92,36 @@ public class ResultadoProceso {
      * Getter de <code>numero</code>.
      * 
      * @return {@link #numero}
+     * @since 1.0
      */
     public int getNumero() {
         return numero;
+    }
+
+    /**
+     * Getter de <code>primosEncontrados</code>.
+     * 
+     * @return {@link #primosEncontrados}
+     * @since 1.5
+     */
+    public int getPrimosEncontrados() {
+        return primosEncontrados;
+    }
+
+    /**
+     * Setter de <code>numerosEncontrados</code>.
+     * 
+     * @since 1.5
+     */
+    public void setPrimosEncontrados(int primosEncontrados) {
+        this.primosEncontrados = primosEncontrados;
     }
 
     @Override
     public String toString() {
         return "\tProceso: #"+ numero +
             "\n\tRango: ["+ rango[0] +", "+ rango[1] +"]"+
+            "\n\tPrimos encontrados: "+ primosEncontrados +
             "\n\tSalida: "+ salida;
     }
 }

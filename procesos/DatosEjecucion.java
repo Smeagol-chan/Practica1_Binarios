@@ -9,7 +9,7 @@ import java.util.ArrayList;
  * @author Eric Ramos Pastor
  * @see procesos.ResultadoProceso
  * @version %I%, %G%
- * @since 1.0
+ * @since 1.5
  */
 public class DatosEjecucion {
     /**
@@ -28,6 +28,10 @@ public class DatosEjecucion {
      * Intervalo de números a procesar.
      */
     private final int[] rango;
+    /**
+     * Cantidad de números encontrados.
+     */
+    private int primosEncontrados;
     /**
      * Procesos que lo componen.
      */
@@ -53,18 +57,20 @@ public class DatosEjecucion {
     /**
      * Constructor con todos los parámetros definidos.
      * <p>
-     * Los atributos <code>inicioMillis</code> y <code>finMillis</code> se inicializan con los parámetros homónimos. 
+     * Los atributos <code>inicioMillis, finMillis y primosEncontrados</code> se inicializan con los parámetros homónimos. 
      * El resto se envían como parámetros a {@link #DatosEjecucion(int, int[])}.
      * 
      * @param inicioMillis Milisegundos totales hasta el inicio de la ejecución.
      * @param finMillis Milisegundo totales hasta el final de la ejecución.
      * @param cantidadProcesos Total de procesos simultáneos.
      * @param rango Rango numérico que ha procesado.
-     * @since 1.0
+     * @param primosEncontrados Cantidad de números primos encontrados.
+     * @since 1.5
      */
-    public DatosEjecucion(final long inicioMillis, final long finMillis, final int cantidadProcesos, final int[] rango) {
+    public DatosEjecucion(final long inicioMillis, final long finMillis, final int cantidadProcesos, final int[] rango, final int primosEncontrados) {
         this.inicioMillis = inicioMillis;
         this.finMillis = finMillis;
+        this.primosEncontrados = primosEncontrados;
         this(cantidadProcesos, rango);
     }
 
@@ -82,6 +88,7 @@ public class DatosEjecucion {
      * Setter de <code>inicioMillis</code>.
      * 
      * @param inicioMillis {@link #inicioMillis}
+     * @since 1.0
      */
     public void setInicioMillis(final long inicioMillis) {
         this.inicioMillis = inicioMillis;
@@ -91,6 +98,7 @@ public class DatosEjecucion {
      * Setter de <code>finMillis</code>.
      * 
      * @param finMillis {@link #finMillis}
+     * @since 1.0
      */
     public void setFinMillis(final long finMillis) {
         this.finMillis = finMillis;
@@ -100,6 +108,7 @@ public class DatosEjecucion {
      * Getter de <code>cantidadProcesos</code>.
      * 
      * @return {@link #cantidadProcesos}
+     * @since 1.0
      */
     public int getCantidadProcesos() {
         return cantidadProcesos;
@@ -109,6 +118,7 @@ public class DatosEjecucion {
      * Getter de <code>rango</code>.
      * 
      * @return {@link #rango}
+     * @since 1.0
      */
     public int[] getRango() {
         return rango;
@@ -118,9 +128,31 @@ public class DatosEjecucion {
      * Getter de <code>procesosEjecutados</code>.
      * 
      * @return {@link #procesosEjecutados}
+     * @since 1.0
      */
     public List<ResultadoProceso> getProcesosEjecutados() {
         return procesosEjecutados;
+    }
+
+    /**
+     * Getter de <code>primosEncontrados</code>.
+     * 
+     * @return {@link #primosEncontrados}
+     * @since 1.5
+     */
+    public int getPrimosEncontrados() {
+        return primosEncontrados;
+    }
+
+    /**
+     * Suma la cantidad introducida al total de primos encontrados.
+     * 
+     * @param qty Cantidad a añadir.
+     * @see #primosEncontrados
+     * @since 1.5
+     */
+    public void anyadirQtyPrimos(final int qty) {
+        primosEncontrados += qty;
     }
 
     /**
@@ -140,7 +172,7 @@ public class DatosEjecucion {
      * El <code>foreach</code> sirve para formatear los <code>toString()</code> de cada proceso con 
      * un tabulador a la izquierda. Se utiliza un <code>StringBuilder</code> para ahorrar memoria.
      * 
-     * @since 1.0
+     * @since 1.5
      */
     @Override
     public String toString() {
@@ -149,6 +181,7 @@ public class DatosEjecucion {
             resultadosProcesos.append("\n").append(proceso.toString()).append("\n");
 
         return "Rango: ["+ rango[0] +", "+ rango[1] +"]"+
+            "\nPrimos encontrados: "+ primosEncontrados +
             "\nCantidad de procesos: "+ cantidadProcesos +
             "\nTiempo de ejecución: "+ getTiempoEjecucion() +" segundos"+
             "\nProcesos: "+ resultadosProcesos.toString();
